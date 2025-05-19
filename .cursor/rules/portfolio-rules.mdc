@@ -1,0 +1,59 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+-- building my portfolio to showcase projects we have done
+-- this is the file structure we need to maintain
+/portfolio-site
+├── pages
+│   ├── index.tsx         ← Landing
+│   ├── projects/index.tsx← All projects overview
+│   └── projects/[slug].tsx ← Dynamic project pages
+├── components
+│   ├── Navbar.tsx
+│   ├── ProjectCard.tsx
+│   ├── FeatureList.tsx
+│   └── VideoPlayer.tsx
+├── data
+│   └── projects.ts       ← JSON-like project data (title, slug, desc, etc.)
+├── styles
+│   └── globals.css
+├── public
+│   └── assets/images/
+└── tailwind.config.js
+
+-- and we want the ui to follow this theme
+/                → animated intro + CTA
+/projects        → grid of all projects (main + micro)
+/projects/[slug] → individual project pages
+/about           → story, skillset, photo if you want
+/contact         → form or social/email links
+
+-- @/data/projects.ts is where will store project data in this format
+-- export const projects = [
+  {
+    slug: "glassy-css-concept",
+    type: "Micro",
+    title: "Glassy CSS UI Concept",
+    description: "A minimal glassmorphism component set...",
+    tech: ["CSS", "Tailwind"],
+    liveLink: "https://...",
+    repo: "https://github.com/hands/glassy-ui",
+    video: "/assets/glassy.mp4",
+    features: [
+      "Pure CSS implementation",
+      "Light/dark adaptive glass",
+      "Custom component tokens"
+    ]
+  },
+  ...
+]
+
+
+
+
+
+
+
+
