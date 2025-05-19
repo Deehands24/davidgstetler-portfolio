@@ -41,7 +41,7 @@ export default function Home() {
       <div className="min-h-screen bg-gradient-to-b from-black to-neutral-900 text-white">
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center text-center py-32 px-6">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Hey, I'm Hands</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">Hey, I&apos;m Hands</h1>
           <p className="text-lg md:text-xl max-w-2xl text-neutral-300">
             Web designer & creative developer. I build slick, performance-optimized interfaces with a touch of flash and a whole lot of polish.
           </p>
@@ -76,7 +76,7 @@ export default function Home() {
                     <div className="w-full h-full flex items-center justify-center">
                       <p className="text-neutral-400 px-4 text-center">
                         {project.video ? 
-                          "Video not found. Add a video file at 'public/videos/glassrecord.mp4'" : 
+                          "Video not found. Add a video file at &apos;public/videos/glassrecord.mp4&apos;" : 
                           "Image not found"
                         }
                       </p>
@@ -98,8 +98,8 @@ export default function Home() {
         {/* Contact CTA */}
         <section id="contact" className="py-24 bg-neutral-950 px-6">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Let's Build Something</h2>
-            <p className="text-neutral-400 mb-6">Open to freelance opportunities and collaborations. Let's connect and make something impactful.</p>
+            <h2 className="text-3xl font-bold mb-4">Let&apos;s Build Something</h2>
+            <p className="text-neutral-400 mb-6">Open to freelance opportunities and collaborations. Let&apos;s connect and make something impactful.</p>
             <a href="mailto:youremail@example.com" className="inline-block px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300">
               Get in Touch
             </a>
