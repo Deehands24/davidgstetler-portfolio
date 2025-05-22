@@ -11,18 +11,38 @@ export default function About() {
       </Head>
       <div className="min-h-screen bg-gradient-to-b from-black to-neutral-900 text-white">
         <nav className="py-6 px-8">
-          <div className="flex justify-between items-center max-w-6xl mx-auto">
-            <div className="text-2xl font-bold">DS</div>
-            <div className="flex space-x-6">
-              <Link href="/" className="nav-link">Home</Link>
-              <Link href="/about" className="nav-link active">About</Link>
-              <Link href="/contact" className="nav-link">Contact</Link>
-            </div>
+          <div className="flex justify-center items-center max-w-6xl mx-auto space-x-12">
+            <Link href="/" className="nav-button">
+              <div className="nav-icon">🏠</div>
+              <div className="nav-label">Home</div>
+            </Link>
+            <Link href="/about" className="nav-button active">
+              <div className="nav-icon">👤</div>
+              <div className="nav-label">About</div>
+            </Link>
+            <Link href="/contact" className="nav-button">
+              <div className="nav-icon">✉️</div>
+              <div className="nav-label">Contact</div>
+            </Link>
           </div>
         </nav>
 
         <div className="app">
           <h1 className="section-title">About Me</h1>
+          
+          <div className="profile-container">
+            <div className="profile-image-wrapper">
+              <img 
+                src="/images/Designer (1).png" 
+                alt="Designer Portrait" 
+                className="profile-image"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/250x250?text=Designer";
+                }}
+              />
+            </div>
+          </div>
           
           <div className="about-content glass-card p-8 max-w-3xl mx-auto">
             <p className="mb-6">

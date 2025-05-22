@@ -15,13 +15,19 @@ export default function Home() {
       <div className="min-h-screen bg-gradient-to-b from-black to-neutral-900 text-white">
         {/* Navigation */}
         <nav className="py-6 px-8">
-          <div className="flex justify-between items-center max-w-6xl mx-auto">
-            <div className="text-2xl font-bold">DS</div>
-            <div className="flex space-x-6">
-              <Link href="/" className="nav-link active">Home</Link>
-              <Link href="/about" className="nav-link">About</Link>
-              <Link href="/contact" className="nav-link">Contact</Link>
-            </div>
+          <div className="flex justify-center items-center max-w-6xl mx-auto space-x-12">
+            <Link href="/" className="nav-button active">
+              <div className="nav-icon">🏠</div>
+              <div className="nav-label">Home</div>
+            </Link>
+            <Link href="/about" className="nav-button">
+              <div className="nav-icon">👤</div>
+              <div className="nav-label">About</div>
+            </Link>
+            <Link href="/contact" className="nav-button">
+              <div className="nav-icon">✉️</div>
+              <div className="nav-label">Contact</div>
+            </Link>
           </div>
         </nav>
 
