@@ -1,110 +1,55 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
-
-const projects = [
-  {
-    title: 'Glassy UI Kit',
-    description: 'A reusable CSS component system with a frosted glass aesthetic and touch-friendly shadows.',
-    image: '/videos/glassrecord.mp4',
-    link: 'https://github.com/yourusername/glassy-ui',
-    video: true
-  },
-  {
-    title: 'Interactive Portfolio Template',
-    description: 'A dynamic portfolio site template using Next.js, Tailwind, and animated project cards.',
-    image: '/images/portfolio-template.jpg',
-    link: 'https://github.com/yourusername/portfolio-template'
-  },
-  {
-    title: 'Design System Builder',
-    description: 'Tooling and UI framework to create consistent design systems with custom theming support.',
-    image: '/images/design-system.jpg',
-    link: 'https://github.com/yourusername/design-system'
-  }
-];
 
 export default function Home() {
-  const [videoError, setVideoError] = useState({});
-
-  const handleVideoError = (index) => {
-    setVideoError(prev => ({...prev, [index]: true}));
-  };
+  const [clicked, setClicked] = useState(false);
 
   return (
     <>
       <Head>
-        <title>Hands | Portfolio</title>
-        <meta name="description" content="Web design portfolio of Hands, showcasing creative and technical project work." />
+        <title>David Stetler | Portfolio</title>
+        <meta name="description" content="David Stetler's portfolio website showcasing full stack development projects" />
       </Head>
       <div className="min-h-screen bg-gradient-to-b from-black to-neutral-900 text-white">
-        {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center text-center py-32 px-6">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Hey, I&apos;m Hands</h1>
-          <p className="text-lg md:text-xl max-w-2xl text-neutral-300">
-            Web designer & creative developer. I build slick, performance-optimized interfaces with a touch of flash and a whole lot of polish.
-          </p>
-          <div className="mt-8">
-            <Link href="#projects" legacyBehavior>
-              <a className="inline-block px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                View My Work
-              </a>
-            </Link>
-          </div>
-        </section>
+        <div className="app" data-clicked={clicked}>
+          <h2 className="section-title">Welcome to My Portfolio</h2>
 
-        {/* Projects Preview */}
-        <section id="projects" className="py-24 px-6">
-          <h2 className="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <div key={index} className="glass-card overflow-hidden flex flex-col p-4">
-                <div className="overflow-hidden flex justify-center items-center h-48 bg-neutral-800 rounded-lg">
-                  {project.video && !videoError[index] ? (
-                    <video 
-                      src={project.image} 
-                      alt={project.title}
-                      className="h-full w-auto object-contain"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      onError={() => handleVideoError(index)}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <p className="text-neutral-400 px-4 text-center">
-                        {project.video ? 
-                          "Video not found. Add a video file at &apos;public/videos/glassrecord.mp4&apos;" : 
-                          "Image not found"
-                        }
-                      </p>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6 flex-grow">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-neutral-400 mb-4">{project.description}</p>
-                  <a href={project.link} className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                  </a>
-                </div>
-              </div>
-            ))}
+          <div className="bio-container">
+            <button
+              className={`glassy-btn ${clicked ? "spin" : ""}`}
+              onClick={() => setClicked((c) => !c)}
+            >
+              Hi, I&apos;m David Stetler — a passionate Full Stack Developer who crafts responsive, intuitive user interfaces and scalable backend systems. Whether through traditional code or low-code platforms, I deliver effective and modern solutions. With a strong grasp of data science, I enjoy transforming complex challenges into smart, efficient products.
+            </button>
           </div>
-        </section>
 
-        {/* Contact CTA */}
-        <section id="contact" className="py-24 bg-neutral-950 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Let&apos;s Build Something</h2>
-            <p className="text-neutral-400 mb-6">Open to freelance opportunities and collaborations. Let&apos;s connect and make something impactful.</p>
-            <a href="mailto:youremail@example.com" className="inline-block px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300">
-              Get in Touch
-            </a>
+          <h3 className="projects-title">Here are projects that I worked on:</h3>
+
+          <div className="projects-container">
+            <div className="project-card">
+              <div className="project-title">Project One Title</div>
+              <img src="https://via.placeholder.com/300x200" alt="Project One" className="project-media" />
+              <p className="project-description">Brief description of the project and what technologies or skills were used.</p>
+            </div>
+
+            <div className="project-card">
+              <div className="project-title">Project Two Title</div>
+              <video className="project-media" controls>
+                <source src="/videos/glassrecord.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p className="project-description">Short write-up or key features of the project, video demonstration included.</p>
+            </div>
+
+            <div className="project-card">
+              <div className="project-title">Project Three Title</div>
+              <img src="https://via.placeholder.com/300x200" alt="Project Three" className="project-media" />
+              <p className="project-description">Summary of what the project achieved or how it solved a problem.</p>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );
