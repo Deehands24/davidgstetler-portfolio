@@ -13,8 +13,36 @@ export default function Home() {
         <meta name="description" content="David Stetler's portfolio website showcasing full stack development projects" />
       </Head>
       <div className="min-h-screen bg-gradient-to-b from-black to-neutral-900 text-white">
+        {/* Navigation */}
+        <nav className="py-6 px-8">
+          <div className="flex justify-between items-center max-w-6xl mx-auto">
+            <div className="text-2xl font-bold">DS</div>
+            <div className="flex space-x-6">
+              <Link href="/" className="nav-link active">Home</Link>
+              <Link href="/about" className="nav-link">About</Link>
+              <Link href="/contact" className="nav-link">Contact</Link>
+            </div>
+          </div>
+        </nav>
+
         <div className="app" data-clicked={clicked}>
           <h2 className="section-title">Welcome to My Portfolio</h2>
+
+          {/* Profile Image */}
+          <div className="profile-container">
+            <div className="profile-image-wrapper">
+              {/* Replace with your actual image path */}
+              <img 
+                src="/images/profile/profile.jpg" 
+                alt="David Stetler" 
+                className="profile-image"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/250x250?text=David+Stetler";
+                }}
+              />
+            </div>
+          </div>
 
           <div className="bio-container">
             <button
